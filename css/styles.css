@@ -23,3 +23,19 @@ header div{
     text-align: center;
     padding: 20px;
 }
+
+.button-container {
+    border: 5px solid red;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.display-container {
+    border: 5px solid black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%; 
+}
