@@ -5,7 +5,7 @@ h2 {
     text-align: center;
 }
 
-header {
+footer {
     text-align: center;
 }
 header div{
@@ -25,7 +25,7 @@ header div{
 }
 
 .button-container {
-    border: 5px solid red;
+    /* border: 5px solid red; */
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -33,10 +33,11 @@ header div{
 }
 
 .display-container {
-    border: 5px solid black;
+    /* border: 5px solid black; */
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin: 0 auto 0 auto;
     width: 50%; 
 }
 
@@ -45,3 +46,32 @@ header div{
     margin-left: auto;
     margin-right: auto;
  }
+
+.button{
+    background: black;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 4px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.button:hover {
+    background: #555555;
+    color: black;
+    opacity: 0.6;
+}
+
+.button disabled {
+    cursor: not-allowed;
+}
+
+#alphabet {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 0 0 0;
+}
