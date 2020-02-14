@@ -48,17 +48,19 @@ header div{
  }
 
 .button{
-    background: black;
-    color: white;
-    padding: 16px;
+    background: #eaa997;
+    color: black;
+    padding: 8px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 12px;
+    font-size: 30px;
     margin: 4px 4px;
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 8px;
+    font-family: Pirou-Regular;
+
 }
 .button:hover {
     background: #555555;
@@ -74,4 +76,38 @@ header div{
     margin-top: 0;
     margin-bottom: 0;
     padding: 0 0 0 0;
+}
+img svg{
+    background: none;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 4px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+    /* width: 50px; */
+    height: 50px;
+    fill: #eaa997;
+}
+
+@font-face {
+    font-family: Pirou-Regular;
+    src: url(pirou-regular.otf);
+}
+
+.answer-button {
+    text-decoration: none;
+    font-family: 'Lilita One', cursive;
+    display: inline-block;
+    color: rgba(104 127 152);
+    font-size: 23pt;
+}
+
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
 }

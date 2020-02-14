@@ -32,3 +32,13 @@ possible api to use var api = 'https://api.wordnik.com:80/v4/words.json/randomWo
 
 or maybe this one https://rapidapi.com/blog/directory/setgetgo-random-word/
 
+Pirou font type for buttons
+
+
+'Circular Badge Shape.svg' set this image to background of buttons
+
+Header, word guess and enter word fonts are 'Lilita One'
+
+dropdown category and random word font is 'Montserrat Light'
+
+<!-- <img src='images/Circular Badge Shape2.svg'/>  -->

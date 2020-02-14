@@ -17,26 +17,27 @@ console.log("script connected")
 
 */
 
-let alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
-let words = ['zany', 'respect', 'suck', 'spoil', 'fast', 'wait', 'flock', 'spicy', 'devilish', 'slippery', 'mammoth', 'chase', 'scribble', 'store', 'roasted', 'drop', 'goofy', 'permit', 'macabre', 'parsimonious']
+const words = ['zany', 'respect', 'suck', 'spoil', 'fast', 'wait', 'flock', 'spicy', 'devilish', 'slippery', 'mammoth', 'chase', 'scribble', 'store', 'roasted', 'drop', 'goofy', 'permit', 'macabre', 'parsimonious']
 
-console.log(Math.floor(Math.random()*words.length))
+// console.log(Math.floor(Math.random()*words.length))
 
-let randomWord = function() {
-    words[Math.floor(Math.random()*words.length)]
-}
+// let randomWord = function() {
+//     words[Math.floor(Math.random()*words.length)]
+// }
 
-console.log(randomWord)
+// console.log(randomWord)
+
 
 //Create Aphabet list in button container
 let buttons = function () {
     myButtons = document.querySelector('.button-container')
     letters = document.querySelector('#letter-buttons')
     for (let i=0; i<alphabet.length; i++){
-        letters.id = 'alphabet'
+        // letters.id = 'alphabet'
         list = document.createElement('li')
-        list.id = 'letter'
+        // list.id = 'letter'
         list.classList.add('button')
         list.innerHTML = alphabet[i]
         letters.appendChild(list)
@@ -51,6 +52,24 @@ let buttons = function () {
     //   myButtons.appendChild(letters)
     //   letters.appendChild(list)
     // }
-  }
+}
 
-  buttons()
+buttons()
+
+
+function answerButtons() {
+    //This is where the buttons for the answer will be displayed
+    //when the correct letter button is clicked, it will send a signal to flip the answer card from a blank space to the correct corresponding letter for the word.
+    for (let i = 0; i < words[0].length; i++) {
+        answerContainer = document.querySelector('#display-progress')
+        answerList = document.createElement('li')
+        answerList.classList.add('answer-button')
+        wordLetter = words[0][i]
+        console.log(wordLetter)
+        answerList.innerHTML = wordLetter
+        console.log(answerList)
+        answerContainer.appendChild(answerList)
+    //   answerList.appendChild(list)
+    }
+}
+answerButtons()
