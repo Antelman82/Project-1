@@ -16,3 +16,13 @@ console.log("script connected")
 
 
 */
+
+let words = ['zany', 'respect', 'suck', 'spoil', 'fast', 'wait', 'flock', 'spicy', 'devilish', 'slippery', 'mammoth', 'chase', 'scribble', 'store', 'roasted', 'drop', 'goofy', 'permit', 'macabre', 'parsimonious']
+
+console.log(Math.floor(Math.random()*words.length))
+
+let randomWord = function() {
+    return words[Math.floor(Math.random()*words.length)]
+}
+
+console.log(randomWord)

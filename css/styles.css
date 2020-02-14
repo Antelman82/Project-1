@@ -39,3 +39,9 @@ header div{
     margin-right: auto;
     width: 50%; 
 }
+
+.display-container img {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+ }
