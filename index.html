@@ -5,31 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HANGMAN</title>
     <link href="https://fonts.googleapis.com/css?family=Lilita+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet"/>
 </head>
 <body>
     <h1>HANGMAN</h1>
     <!-- <div id='border1' class='seperator'>--------------------------</div> -->
-    <img id='border1' class='separator' src='Barbedwire.png'/>
+    <img id='border1' class='separator' src='images/Line Arrow With Tail.svg'/>
     <div class='display-container center'>
-        <!-- each div for each letter goes here -->
-        Hangman picture container
         <img class='image center' src='images/sb21_series_mounted_snowblower_large_c3e0fa42c1cab08c38b258d062aec819fbb9fb0f-1 (1) copy.jpg'/>
     </div> 
-    <div id='display-progress' class='center'>Progress of Word Being Displayed<br></div>
+    <div id='display-progress' class='center'></div>
     <div class='lives-left center'>You have X lives left</div>
     <div class='button-container'>
-        <ul id=letter-buttons class='center'>
-        </ul>
-
+        <ul id=letter-buttons class='center'></ul>
     </div>
-    <div id=resetButton class='center'>Reset Button</div>
+    <div class='word-input'>
+        <input class='input' type='text' placeholder="Enter Word Here"></input>
+    </div>
+    <div id=resetButton class='lives-left center'>Reset Button</div>
     <!-- <div id='border2' class='seperator'>--------------------------</div> -->
-    <img id='border2' class='separator' src='Barbedwire.png'/>
+    <img id='border2' class='separator' src='images/Line Arrow With Tail.svg'/>
     <footer>Instructions:
         <div>Use the alphabet below to guess the word</div>
     </footer>
     <h2>Project 1</h2>
+    
 
 
     <script src='js/script.js'></script>

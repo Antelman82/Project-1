@@ -21,6 +21,8 @@ const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 
 const words = ['zany', 'respect', 'suck', 'spoil', 'fast', 'wait', 'flock', 'spicy', 'devilish', 'slippery', 'mammoth', 'chase', 'scribble', 'store', 'roasted', 'drop', 'goofy', 'permit', 'macabre', 'parsimonious']
 
+const userWord = document.querySelector('.input')
+
 // console.log(Math.floor(Math.random()*words.length))
 
 // let randomWord = function() {
@@ -60,11 +62,18 @@ buttons()
 function answerButtons() {
     //This is where the buttons for the answer will be displayed
     //when the correct letter button is clicked, it will send a signal to flip the answer card from a blank space to the correct corresponding letter for the word.
+    // need a check for user word input first.
+    if (userWord !== '') {
+        word = userWord.value
+    }
+    if (userWord == '') {
+        word = words[0]
+    }
     for (let i = 0; i < words[0].length; i++) {
         answerContainer = document.querySelector('#display-progress')
         answerList = document.createElement('li')
         answerList.classList.add('answer-button')
-        wordLetter = words[0][i]
+        wordLetter = word[i]
         console.log(wordLetter)
         answerList.innerHTML = wordLetter
         console.log(answerList)
@@ -72,4 +81,14 @@ function answerButtons() {
     //   answerList.appendChild(list)
     }
 }
-answerButtons()
+//answerButtons()
+
+function resetGame() {
+    /*Things that need reset
+        - input word
+        - guesses
+        - random word
+        - lives left
+        - hangman picture
+    */
+}

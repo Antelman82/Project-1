@@ -19,6 +19,7 @@ Silver Level:
 - Cool Picture
 - Basic Scoring
 - insert grid over image to slowly fill each grid block to match background color, so slowly remove the picture. grid should be a 5x5 to start. 
+- User input their own word
 
 Gold Level:
 - Words to guess could be pulled from a list
@@ -42,3 +43,5 @@ Header, word guess and enter word fonts are 'Lilita One'
 dropdown category and random word font is 'Montserrat Light'
 
 <!-- <img src='images/Circular Badge Shape2.svg'/>  -->
+
+bug1 - When user enters a sentence or a phrase, it only picks up the first word. 
