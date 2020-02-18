@@ -14,6 +14,7 @@ Bronze Level:
 - Basic count return of bad guesses and set limit to how many tries
 - Basic buttons
 - Instructions: Use the alphabet below to guess the word
+- Need a way to check if the final word is completed, or lives drops to zero for game over.
 
 Silver Level:
 - Cool Picture

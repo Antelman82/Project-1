@@ -80,10 +80,6 @@ header div{
     opacity: 0.6;
 }
 
-.button disabled {
-    cursor: not-allowed;
-}
-
 #alphabet {
     margin-top: 0;
     margin-bottom: 0;
@@ -153,3 +149,16 @@ img {
     margin-left: auto;
     margin-right: auto;
 } 
+
+#bottom-buttons {
+    font-family: 'Montserrat', sans-serif;    
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+    color: rgba(104 127 152);
+    text-align: center;
+    cursor: pointer;
+}
+
