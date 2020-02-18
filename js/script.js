@@ -12,9 +12,6 @@ console.log("script connected")
     - update button style
     - check letter guess against solution
     - Update picture based on accurate guess
-
-
-
 */
 
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -81,17 +78,13 @@ function removeEvent() {
         false
     })
 }
-
+const userWord = document.querySelector('.input')
 let word = ''
 function answerButtons() {
-    //This is where the buttons for the answer will be displayed
-    //when the correct letter button is clicked, it will send a signal to flip the answer card from a blank space to the correct corresponding letter for the word.
-    // need a check for user word input first.
-    const userWord = document.querySelector('.input')
-
     if (userWord.value !== '') {
         // console.log(userWord.value)
         word = userWord.value
+        userWord.value = ''
         // console.log(word)
     } else {
         // console.log(randomWord)
@@ -180,9 +173,5 @@ function checkLetter(letter) {
 
 }
 //need a condition to check
-
-function submitButton() {
-
-}
 const submitButton = document.querySelector('#submit-button')
-submitButton.addEventListener('click', submitButton)
+submitButton.addEventListener('click', answerButtons)
