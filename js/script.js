@@ -4,14 +4,14 @@ console.log("script connected")
 //Create Aphabet Elements - done
 //Create Guess Elements - done
 //Show lives - done
-//"Animate" picture
+//"Animate" picture - done
 
 
 /*Game functions
-    - click letter button
-    - update button style
-    - check letter guess against solution
-    - Update picture based on accurate guess
+    - click letter button - done
+    - update button style - done
+    - check letter guess against solution - done
+    - Update picture based on accurate guess - done
 */
 
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -31,13 +31,14 @@ let randomWord = function() {
 //This is the activitity after letter button is clicked
 function setButtonAtt () {
     // console.log(`You clicked ${this.innerHTML}`)
-    this.setAttribute("style", "cursor:ds not-allowed; background: #555555; opacity: 0.6;")
+    this.setAttribute("style", "cursor: not-allowed; background: #555555; opacity: 0.6;")
     // console.log(this)
     // console.log(this.innerHTML)
     this.removeEventListener('click', setButtonAtt)
     // checkLetter(this)
     checkLetter(this.innerHTML)
 }
+let letters = document.querySelector('#letter-buttons')
 
 //Create Aphabet list in button container
 let buttons = function () {
@@ -56,20 +57,8 @@ let buttons = function () {
     letterList = document.querySelectorAll('#letter-buttons li')
     letterList.forEach(letter => {
         letter.addEventListener('click', setButtonAtt)
-            // letter.setAttribute("style", ""   background: #555555;
-            //     color: black;
-            //     opacity: 0.6;)
-            // letter.classList.add('clicked')
         })
-    
-    // letterList.forEach(event => {
-    //     letter.addEventListener('click', function(){
-    //         console.log(this)
-    //         console.log(`you clicked ${this.innerText}`)
-    //     })
-    // })
 }
-
 buttons()
 
 function removeEvent() {
@@ -80,19 +69,14 @@ function removeEvent() {
 }
 const userWord = document.querySelector('.input')
 let word = ''
+answerContainer = document.querySelector('#display-progress')
 function answerButtons() {
     if (userWord.value !== '') {
-        // console.log(userWord.value)
         word = userWord.value
         userWord.value = ''
-        // console.log(word)
     } else {
-        // console.log(randomWord)
         word = randomWord
-        // console.log(word)
     }
-
-    answerContainer = document.querySelector('#display-progress')
     answerContainer.innerHTML = ''
     for (let i = 0; i < word.length; i++) {
         answerList = document.createElement('li')
@@ -109,23 +93,33 @@ function answerButtons() {
 }
 //answerButtons()
 const resetButton = document.querySelector('#reset-button')
-
+let lettersArray = document.querySelectorAll('#letter-buttons li')
 resetButton.addEventListener('click', resetGame)
 function resetGame() {
     console.log('resetting game')
-    /*Things that need reset
-        - input word
-        - guesses
-        - random word
-        - lives left
-        - hangman picture
-    */
+    word = ''               //reset input word
+    gridSelector = 0        //reset hangman picture
+    while (gameBoardContainer.hasChildNodes()){
+        gameBoardContainer.removeChild(gameBoardContainer.firstChild)
+    }
+    setupGameBoard()
+
+    lives = 10              //reset lives
+    livesLeft.innerHTML = `You have ${lives} lives left`
+
+    //Reset reset answer buttons
+    while (answerContainer.hasChildNodes()){
+        answerContainer.removeChild(answerContainer.firstChild)
+    }
+    //Reset each alphabet letter button
+    lettersArray.forEach(letter => {
+        letter.setAttribute("style", "cursor: pointer; background: #eaa997; opacity: 1;")
+        letter.addEventListener('click', setButtonAtt)
+    })
+    // while (answerContainer.hasChildNodes()){
+    //     answerContainer.removeChild(answerContainer.firstChild)
+    // }
 }
-
-//eventlistener for each button. 
-// each button needs to check if the letter is in the word, if so, then desplay that letter, if not, then update lives -1
-
-
 
 const randomButton = document.querySelector('#random-button')
 
@@ -138,7 +132,9 @@ function randomWordButton() {
 }
 
 randomButton.addEventListener('click', randomWordButton)
-
+gridSelector = 0
+const gameBoardContainer = document.querySelector('.display-container')
+let gameBoard = gameBoardContainer.querySelectorAll('div')
 function checkLetter(letter) {
     //checks if letter clicked is contianed within the word.
     console.log("checking if letter in word")
@@ -165,9 +161,20 @@ function checkLetter(letter) {
 
     } else {
         console.log('Bad Guess')
+        console.log(lives)
         //subtract lives
         lives--
+        console.log(lives)
         livesLeft.innerHTML = `You have ${lives} lives left`
+        console.log(gridSelector)
+        // console.log(gameBoardContainer)
+        // console.log(gameBoardContainer.querySelector('.grid0'))
+        console.log(gameBoardContainer.querySelector(`.grid${gridSelector}`))
+        gameBoardContainer.querySelector(`.grid${gridSelector}`).setAttribute('style', 'background: white;')
+        gridSelector++
+        console.log(gridSelector)
+
+
 
     }
 
@@ -175,3 +182,15 @@ function checkLetter(letter) {
 //need a condition to check
 const submitButton = document.querySelector('#submit-button')
 submitButton.addEventListener('click', answerButtons)
+
+
+function setupGameBoard() {
+    //add divs to <div class='display-container center'> container to match the number of lives
+    for (let i=0;i<=10;i++){
+        lifeBlock = document.createElement('div')
+        lifeBlock.classList.add(`grid${i}`)
+        gameBoardContainer.appendChild(lifeBlock)
+    }
+}
+setupGameBoard()
+

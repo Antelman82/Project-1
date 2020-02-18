@@ -3,27 +3,27 @@ README.md
 
 I think I'm going to do my project using the hangman game.
 
-- As a user I should be able to enter my own word or phrase
-- As a user I should be able to see all the available alphabet letters
-- As a user I should see the letters guess change so I know what was guessed and left to guess
+x As a user I should be able to enter my own word or phrase
+x As a user I should be able to see all the available alphabet letters
+x As a user I should see the letters guess change so I know what was guessed and left to guess
 - As a user I should see how many wins and how many losses
-- As a user I can click a button and generate a word for me to guess
-- As a user I should start the game with 10 lives.
+x As a user I can click a button and generate a word for me to guess
+x As a user I should start the game with 10 lives.
 
 Bronze Level:
-- Basic count return of bad guesses and set limit to how many tries
-- Basic buttons
-- Instructions: Use the alphabet below to guess the word
+x Basic count return of bad guesses and set limit to how many tries
+x Basic buttons
+x Instructions: Use the alphabet below to guess the word
 - Need a way to check if the final word is completed, or lives drops to zero for game over.
 
 Silver Level:
 - Cool Picture
 - Basic Scoring
-- insert grid over image to slowly fill each grid block to match background color, so slowly remove the picture. grid should be a 5x5 to start. 
-- User input their own word
+x insert grid over image to slowly fill each grid block to match background color, so slowly remove the picture. grid should be a 5x5 to start. 
+x User input their own word or phrase
 
 Gold Level:
-- Words to guess could be pulled from a list
+x Words to guess could be pulled from a list
 - Words list could come from an api database
 - Filter random words by category
 - click a button to offer hints, but they count against the player
