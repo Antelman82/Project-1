@@ -206,7 +206,6 @@ img {
 @media only screen and (min-width: 768px) {
     #test-image {width: 50%;}
     .separator {width: 50%;}
-    #bottom-buttons {width: 50%;}
     .button {width: 50%;}
     .display-container {width: 50%;}
     .button-container {width: 50%;}

@@ -45,4 +45,6 @@ dropdown category and random word font is 'Montserrat Light'
 
 <!-- <img src='images/Circular Badge Shape2.svg'/>  -->
 
-bug1 - When user enters a sentence or a phrase, it only picks up the first word. 
+bug1 - When user enters a sentence or a phrase, it only picks up the first word. - resolved.
+but2 - When user enter's a capital letter, it doesn't fill when that letter button is picked. 
+bug3 - when user submits a new word before clicking reset, buttons and lives don't reset.
