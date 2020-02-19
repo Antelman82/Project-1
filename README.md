@@ -50,4 +50,4 @@ bug1 - When user enters a sentence or a phrase, it only picks up the first word.
 **** Found when playing with my kids ****
     but2 - When user enter's a capital letter, it doesn't fill when that letter button is picked. I was able to reproduce.
 
-    bug3 - when user submits a new word before clicking reset, buttons and lives don't reset. I was able to reproduce.
+    bug3 - when user submits a new word before clicking reset, buttons and lives don't reset. I was able to reproduce. - resolved, added call to the reset function as the first step of the submit function

@@ -12,6 +12,7 @@ console.log("script connected")
     - update button style - done
     - check letter guess against solution - done
     - Update picture based on accurate guess - done
+    - Return Win or Lose - done
 */
 
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -25,7 +26,7 @@ const livesLeft = document.querySelector('.lives-left')
 
 let randomWord = function() {
     console.log('selecting random word')
-    return words[Math.floor(Math.random()*words.length)]
+    return words[Math.floor(Math.random()*words.length)].toLowerCase() //tolowercase added to resolve bug2
 }
 
 //This is the activitity after letter button is clicked
@@ -68,29 +69,30 @@ function removeEvent() {
 
 const userWord = document.querySelector('.input')
 let word = ''
-answerContainer = document.querySelector('#display-progress')
+const answerContainer = document.querySelector('#display-progress')
+let answerLetters = ''
+//generate the buttons that display the word being guessed
 function answerButtons() {
+    resetGame()             //this was added to address bug3
+    //checks if the input word has been filled or not
     if (userWord.value !== '') {
-        word = userWord.value
+        word = userWord.value.toLowerCase() //tolowercase added to resolve bug2
         userWord.value = ''
     } else {
         word = randomWord
     }
-    answerContainer.innerHTML = ''
+    answerContainer.innerHTML = '' //sets the container text to blank string
+    //takes either a random word or user input word and creates blanks for each letter in the word.
     for (let i = 0; i < word.length; i++) {
         answerList = document.createElement('li')
         answerList.classList.add('answer-button')
-        // wordLetter = word[i]
         wordLetter = '_'
-        // console.log(wordLetter)
         answerList.innerHTML = wordLetter
-        // console.log(answerList)
         answerContainer.appendChild(answerList)
-    //   answerList.appendChild(list)
     }
-
+    answerLetters = answerContainer.querySelectorAll('li')
 }
-//answerButtons()
+
 const resetButton = document.querySelector('#reset-button')
 let lettersArray = document.querySelectorAll('#letter-buttons li')
 resetButton.addEventListener('click', resetGame)
@@ -101,8 +103,7 @@ function resetGame() {
     while (gameBoardContainer.hasChildNodes()){
         gameBoardContainer.removeChild(gameBoardContainer.firstChild)
     }
-    setupGameBoard()
-
+    setupGameBoard()        //reset the game board
     lives = 10              //reset lives
     livesLeft.innerHTML = `You have ${lives} lives left`
 
@@ -117,12 +118,11 @@ function resetGame() {
     })
 }
 
+//generate random word from the words array
 const randomButton = document.querySelector('#random-button')
-
 function randomWordButton() {
     console.log('selecting random word')
     randomWord = words[(Math.floor(Math.random()*words.length))]
-    console.log(randomWord)
     answerButtons()
 }
 
@@ -130,50 +130,53 @@ randomButton.addEventListener('click', randomWordButton)
 gridSelector = 0
 const gameBoardContainer = document.querySelector('.display-container')
 let gameBoard = gameBoardContainer.querySelectorAll('div')
+//checks if guessed letter is within the word
 function checkLetter(letter) {
-    //checks if letter clicked is contianed within the word.
     console.log("checking if letter in word")
-    // console.log(letter)
     answerList = document.querySelectorAll('.answer-button')
     let indices = []
-    // console.log(word.length)
+    //determines if the guessed letter is in the word
     for(let i=0;i<word.length;i++){
         if(word[i] === letter.toLowerCase()) indices.push(i)
     }
-    // console.log(indices) // prints the indices array of all the locations that contain the guessed letter.
+    //if there is a value returned above, it will fill in the answer location with the correct letter.
     if (indices.length > 0){
         console.log('Good Guess')
-        //should I pass the indices array to another function? or should I just push the update directly?
-        // I think I could just do a loop through the array and update the innerHTML for each index matching the word index location with the letter variable.
-        // console.log(answerList)
         for(let i=0;i<indices.length;i++){
-            // console.log(indices)
-            // console.log(answerList[indices[i]])
-            // console.log(answerList)
             answerList[indices[i]].innerHTML = letter.toLowerCase()
-            // console.log(answerList[i])
+        }
+        //check if word is solved after every correct guess
+        if (!checkWin()) {
+            console.log('You Won!!!')
+            if (confirm('You Won!\nWould you like to play again?')){
+                resetGame()
+            }
         }
 
     } else {
         console.log('Bad Guess')
-        // console.log(lives)
         //subtract lives
         lives--
-        // console.log(lives)
+        //update lives left
         livesLeft.innerHTML = `You have ${lives} lives left`
-        // console.log(gridSelector)
-        // console.log(gameBoardContainer)
-        // console.log(gameBoardContainer.querySelector('.grid0'))
-        // console.log(gameBoardContainer.querySelector(`.grid${gridSelector}`))
+        //update grid overlay to white for one box
         gameBoardContainer.querySelector(`.grid${gridSelector}`).setAttribute('style', 'background: white;')
+        //update grid selector value to index to the next box
         gridSelector++
-        // console.log(gridSelector)
+        //check if 0 lives left to stop the game after every incorrect guess
+        if (lives === 0) {
+            console.log('You Lost!!!')
+            if (confirm('Sorry, you Lost.\nWould you like to play again?')){
+                resetGame()
+            }
+        }
     }
 }
-//need a condition to check
+
 const submitButton = document.querySelector('#submit-button')
 submitButton.addEventListener('click', answerButtons)
 
+//Sets up the grid that covers the image
 function setupGameBoard() {
     //add divs to <div class='display-container center'> container to match the number of lives
     for (let i=0;i<=10;i++){
@@ -183,4 +186,18 @@ function setupGameBoard() {
     }
 }
 setupGameBoard()
+
+// Checks if all blanks have been replaced with a guessed letter
+function checkWin(){
+    newArray = []       //temp array scoped to this function only
+    //create a new list of quessed letters
+    for (i=0;i<answerLetters.length;i++){
+        newArray.push(answerLetters[i].innerHTML)
+    }
+    //returns true if there are any blanks in the answer 
+    return newArray.some(item => {
+        return item === '_'
+    })
+}
+
 
