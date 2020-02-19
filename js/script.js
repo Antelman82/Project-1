@@ -45,9 +45,7 @@ let buttons = function () {
     myButtons = document.querySelector('.button-container')
     letters = document.querySelector('#letter-buttons')
     for (let i=0; i<alphabet.length; i++){
-        // letters.id = 'alphabet'
         list = document.createElement('li')
-        // list.id = 'letter'
         list.classList.add('button')
         list.innerHTML = alphabet[i]
         letters.appendChild(list)
@@ -67,6 +65,7 @@ function removeEvent() {
         false
     })
 }
+
 const userWord = document.querySelector('.input')
 let word = ''
 answerContainer = document.querySelector('#display-progress')
@@ -116,9 +115,6 @@ function resetGame() {
         letter.setAttribute("style", "cursor: pointer; background: #eaa997; opacity: 1;")
         letter.addEventListener('click', setButtonAtt)
     })
-    // while (answerContainer.hasChildNodes()){
-    //     answerContainer.removeChild(answerContainer.firstChild)
-    // }
 }
 
 const randomButton = document.querySelector('#random-button')
@@ -128,7 +124,6 @@ function randomWordButton() {
     randomWord = words[(Math.floor(Math.random()*words.length))]
     console.log(randomWord)
     answerButtons()
-    //words[Math.floor(Math.random()*words.length)]
 }
 
 randomButton.addEventListener('click', randomWordButton)
@@ -152,37 +147,32 @@ function checkLetter(letter) {
         // I think I could just do a loop through the array and update the innerHTML for each index matching the word index location with the letter variable.
         // console.log(answerList)
         for(let i=0;i<indices.length;i++){
-            console.log(indices)
-            console.log(answerList[indices[i]])
+            // console.log(indices)
+            // console.log(answerList[indices[i]])
             // console.log(answerList)
             answerList[indices[i]].innerHTML = letter.toLowerCase()
-            console.log(answerList[i])
+            // console.log(answerList[i])
         }
 
     } else {
         console.log('Bad Guess')
-        console.log(lives)
+        // console.log(lives)
         //subtract lives
         lives--
-        console.log(lives)
+        // console.log(lives)
         livesLeft.innerHTML = `You have ${lives} lives left`
-        console.log(gridSelector)
+        // console.log(gridSelector)
         // console.log(gameBoardContainer)
         // console.log(gameBoardContainer.querySelector('.grid0'))
-        console.log(gameBoardContainer.querySelector(`.grid${gridSelector}`))
+        // console.log(gameBoardContainer.querySelector(`.grid${gridSelector}`))
         gameBoardContainer.querySelector(`.grid${gridSelector}`).setAttribute('style', 'background: white;')
         gridSelector++
-        console.log(gridSelector)
-
-
-
+        // console.log(gridSelector)
     }
-
 }
 //need a condition to check
 const submitButton = document.querySelector('#submit-button')
 submitButton.addEventListener('click', answerButtons)
-
 
 function setupGameBoard() {
     //add divs to <div class='display-container center'> container to match the number of lives
