@@ -22,8 +22,6 @@ const words = ['zany', 'respect', 'suck', 'spoil', 'fast', 'wait', 'flock', 'spi
 let lives = 10
 const livesLeft = document.querySelector('.lives-left')
 
-// console.log(Math.floor(Math.random()*words.length))
-
 let randomWord = function() {
     console.log('selecting random word')
     return words[Math.floor(Math.random()*words.length)].toLowerCase() //tolowercase added to resolve bug2
@@ -201,3 +199,15 @@ function checkWin(){
 }
 
 
+// function randomWordAPI() {
+//     axios({
+//         url: "https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=YOURAPIKEY",
+//         method: "GET"
+//     })
+//     .then(response => {
+
+//     })
+//     .catch(error => {
+//         console.log(error)
+//     })
+// }
