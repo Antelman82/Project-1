@@ -17,13 +17,12 @@ console.log("script connected")
 
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
-// $.getJSON('words.json', function(json) {
-//     console.log(words[0])
-//     // return event[0]
-// })
+//Reference words.json file for list of words.
+$.getJSON('words.json', function(json) {
+    words = json
+})
 
-
-const words = ['zany', 'respect', 'suck', 'spoil', 'fast', 'wait', 'flock', 'spicy', 'devilish', 'slippery', 'mammoth', 'chase', 'scribble', 'store', 'roasted', 'drop', 'goofy', 'permit', 'macabre', 'parsimonious']
+// const words = ['zany', 'respect', 'suck', 'spoil', 'fast', 'wait', 'flock', 'spicy', 'devilish', 'slippery', 'mammoth', 'chase', 'scribble', 'store', 'roasted', 'drop', 'goofy', 'permit', 'macabre', 'parsimonious']
 
 let lives = 10
 const livesLeft = document.querySelector('.lives-left')
@@ -134,6 +133,8 @@ randomButton.addEventListener('click', randomWordButton)
 gridSelector = 0
 const gameBoardContainer = document.querySelector('.display-container')
 let gameBoard = gameBoardContainer.querySelectorAll('div')
+const gameBoardResult = document.querySelector('.hide')
+
 //checks if guessed letter is within the word
 function checkLetter(letter) {
     console.log("checking if letter in word")
@@ -144,17 +145,29 @@ function checkLetter(letter) {
         if(word[i] === letter.toLowerCase()) indices.push(i)
     }
     //if there is a value returned above, it will fill in the answer location with the correct letter.
-    if (indices.length > 0){
+    if (indices.length > 0){                //if there is something in the indices array, that means the letter guess is good
         console.log('Good Guess')
+        console.log(`indices.length= ${indices.length}`)
         for(let i=0;i<indices.length;i++){
-            answerList[indices[i]].innerHTML = letter.toLowerCase()
+            answerList[indices[i]].innerHTML = letter.toLowerCase() //this sets the correct blank line with the guessed letter
+            console.log(`answerList[indices[i]]=`)
+            console.log(answerList[indices[i]])
+            //tried moving this logic into the 
+            //check if word is solved after every correct guess
+            // if (!checkWin()) {
+            //     console.log('You Won!!!')
+            //     if (confirm('You Won!\nWould you like to play again?')){
+            //         resetGame()
+            //     }
+            // }
         }
         //check if word is solved after every correct guess
         if (!checkWin()) {
             console.log('You Won!!!')
-            if (confirm('You Won!\nWould you like to play again?')){
-                resetGame()
-            }
+            gameBoardResult.style.display = 'block'
+            gameBoardResult.innerHTML = `You Won!<br><br>To play again, click the Submit button.`
+            gameBoardResult.style.backgroundColor = 'rgba(99,188,126)'
+            gameBoardContainer.style.display = 'none'
         }
 
     } else {
@@ -170,9 +183,10 @@ function checkLetter(letter) {
         //check if 0 lives left to stop the game after every incorrect guess
         if (lives === 0) {
             console.log('You Lost!!!')
-            if (confirm(`Sorry, you Lost.\nThe correct answer was;\n\n"${word}"\n\nWould you like to play again?`)){
-                resetGame()
-            }
+            gameBoardResult.style.display = 'block'
+            gameBoardResult.innerHTML = `You lost!<br>The correct answer was:<br><br>"${word}"<br><br>To play again, click the Submit button.`
+            gameBoardResult.style.backgroundColor = 'rgba(241,143,109)'
+            gameBoardContainer.style.display = 'none'
         }
     }
 }
