@@ -17,6 +17,12 @@ console.log("script connected")
 
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
+// $.getJSON('words.json', function(json) {
+//     console.log(words[0])
+//     // return event[0]
+// })
+
+
 const words = ['zany', 'respect', 'suck', 'spoil', 'fast', 'wait', 'flock', 'spicy', 'devilish', 'slippery', 'mammoth', 'chase', 'scribble', 'store', 'roasted', 'drop', 'goofy', 'permit', 'macabre', 'parsimonious']
 
 let lives = 10
@@ -164,7 +170,7 @@ function checkLetter(letter) {
         //check if 0 lives left to stop the game after every incorrect guess
         if (lives === 0) {
             console.log('You Lost!!!')
-            if (confirm('Sorry, you Lost.\nWould you like to play again?')){
+            if (confirm(`Sorry, you Lost.\nThe correct answer was;\n\n"${word}"\n\nWould you like to play again?`)){
                 resetGame()
             }
         }

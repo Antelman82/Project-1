@@ -1,13 +1,37 @@
-README.md
+format types:
+#Heading
+##Small Heading
+###Smaller Heading
+**Bold**
+- **Bold Bullet Point**
+- Regular Bullet Point
+Links
+[https://git.generalassemb.ly/jdr-0127/project-1](https://git.generalassemb.ly/jdr-0127/project-1)
+> Greyed-out text
+1. Numbered
+1. Lists
+_Italicised_
+
+filename: README.md
+# Hangman
+## Project #1: Build a Game with HTML, CSS and JavaScript
+
+## Primary Files
+
+- **README.md**
+- **index.html**
+- **styles.css**
+- **script.js**
+
 
 
 I think I'm going to do my project using the hangman game.
-
-x As a user I should be able to enter my own word or phrase
-x As a user I should be able to see all the available alphabet letters
-x As a user I should see the letters guess change so I know what was guessed and left to guess
-x As a user I can click a button and generate a word for me to guess
-x As a user I should start the game with 10 lives.
+## User Stories
+1. As a user I should be able to enter my own word or phrase
+1. As a user I should be able to see all the available alphabet letters
+1. As a user I should see the letters guess change so I know what was guessed and left to guess
+1. As a user I can click a button and generate a word for me to guess
+1. As a user I should start the game with 10 lives.
 
 Bronze Level:
 x Basic count return of bad guesses and set limit to how many tries
