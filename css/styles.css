@@ -108,8 +108,8 @@ header div{
     height: 39px !important;
     width: 45px !important;
     /* background: url('/images/Circular_Badge_Shape.svg') no-repeat center center; */
-    -webkit-mask-image: url(/images/Circular_Badge_Shape.svg);
-    mask-image: url(/images/Circular_Badge_Shape.svg);
+    -webkit-mask-image: url(/images/CircularBadgeShape.svg);
+    mask-image: url(/images/CircularBadgeShape.svg);
 }
 
 .button:hover {
@@ -143,7 +143,7 @@ img svg{
 
 @font-face {
     font-family: Pirou-Regular;
-    src: url(pirou-regular.otf);
+    src: url(/css/Pirou-Regular.otf);
 }
 
 .answer-button {
