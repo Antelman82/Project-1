@@ -89,7 +89,11 @@ function answerButtons() {
     for (let i = 0; i < word.length; i++) {
         answerList = document.createElement('li')
         answerList.classList.add('answer-button')
-        wordLetter = '_'
+        if (word[i] === ' ') {
+            wordLetter = ' '
+        } else {
+            wordLetter = '_'
+        }
         answerList.innerHTML = wordLetter
         answerContainer.appendChild(answerList)
     }
@@ -119,6 +123,8 @@ function resetGame() {
         letter.setAttribute("style", "cursor: pointer; background: #eaa997; opacity: 1;")
         letter.addEventListener('click', setButtonAtt)
     })
+    gameBoardResult.style.display = 'none'
+    gameBoardContainer.style.display = 'grid'
 }
 
 //generate random word from the words array
@@ -152,20 +158,12 @@ function checkLetter(letter) {
             answerList[indices[i]].innerHTML = letter.toLowerCase() //this sets the correct blank line with the guessed letter
             console.log(`answerList[indices[i]]=`)
             console.log(answerList[indices[i]])
-            //tried moving this logic into the 
-            //check if word is solved after every correct guess
-            // if (!checkWin()) {
-            //     console.log('You Won!!!')
-            //     if (confirm('You Won!\nWould you like to play again?')){
-            //         resetGame()
-            //     }
-            // }
         }
         //check if word is solved after every correct guess
         if (!checkWin()) {
             console.log('You Won!!!')
             gameBoardResult.style.display = 'block'
-            gameBoardResult.innerHTML = `You Won!<br><br>To play again, click the Submit button.`
+            gameBoardResult.innerHTML = `You Won!<br><br>To play again, click the Reset button.`
             gameBoardResult.style.backgroundColor = 'rgba(99,188,126)'
             gameBoardContainer.style.display = 'none'
         }
@@ -184,15 +182,24 @@ function checkLetter(letter) {
         if (lives === 0) {
             console.log('You Lost!!!')
             gameBoardResult.style.display = 'block'
-            gameBoardResult.innerHTML = `You lost!<br>The correct answer was:<br><br>"${word}"<br><br>To play again, click the Submit button.`
+            gameBoardResult.innerHTML = `You lost!<br>The correct answer was:<br><br>"${word}"<br><br>To play again, click the Reset button.`
             gameBoardResult.style.backgroundColor = 'rgba(241,143,109)'
             gameBoardContainer.style.display = 'none'
         }
     }
 }
-
+//allows user to enter word and submit their own words
 const submitButton = document.querySelector('#submit-button')
 submitButton.addEventListener('click', answerButtons)
+
+//allows user to enter word and submit using the enter key
+userWord.addEventListener('keyup', function(event){
+    if (event.keyCode === 13){
+        event.preventDefault()
+        answerButtons()
+    }
+})
+
 
 //Sets up the grid that covers the image
 function setupGameBoard() {
