@@ -18,6 +18,7 @@ link to project requirements: [https://git.generalassemb.ly/jdr-0127/project-1](
 <p align="center">
 <img src='https://github.com/Antelman82/Project-1/blob/master/Hangmanish%20Layout.png' width=200 align='center'>
 </p>
+
 > created using [https://www.canva.com/create-a-design](https://www.canva.com/create-a-design)
 ---
 
