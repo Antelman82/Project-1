@@ -16,7 +16,7 @@ link to project requirements: [https://git.generalassemb.ly/jdr-0127/project-1](
 ## Screenshots
 - Wireframe
 <p align="center">
-<img src='https://github.com/Antelman82/Project-1/blob/master/Hangmanish%20Layout.png' width=200 align='center'>
+<img src='https://github.com/Antelman82/Project-1/blob/master/Hangmanish%20Layout.png' width=400 align='center'>
 </p>
 
 > created using [https://www.canva.com/create-a-design](https://www.canva.com/create-a-design)
@@ -24,10 +24,10 @@ link to project requirements: [https://git.generalassemb.ly/jdr-0127/project-1](
 
 ## Assets Used
 <p align="center">
-<img src="https://github.com/Antelman82/Project-1/blob/master/images/Line_Arrow_With_Tail.svg" width=200 align=center>
+<img src="https://github.com/Antelman82/Project-1/blob/master/images/Line_Arrow_With_Tail.svg" width=400 align=center>
 </p>
 <p align="center">
-<img src="https://github.com/Antelman82/Project-1/blob/master/images/sb21_series_mounted_snowblower.jpg" width=200 align=center>
+<img src="https://github.com/Antelman82/Project-1/blob/master/images/sb21_series_mounted_snowblower.jpg" width=400 align=center>
 </p>
 <p align='center'>
 <a href='https://random-word-api.herokuapp.com/'>herokuapp random-word-api (words.json)</a>
